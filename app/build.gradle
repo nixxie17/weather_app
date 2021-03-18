@@ -1,0 +1,78 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.showcase.weatherapp"
+        minSdkVersion 23
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+dependencies {
+    implementation project(':domain')
+    implementation project(':data')
+
+    implementation appDependencies.appCompat
+    implementation appDependencies.androidxKtx
+    implementation appDependencies.constraintLayout
+    implementation appDependencies.lifecycleExtensions
+    implementation appDependencies.viewModel
+
+    implementation appDependencies.material
+    implementation appDependencies.picasso
+
+    implementation appDependencies.koinAndroid
+    implementation appDependencies.koinAndroidViewModel
+
+    debugImplementation appDependencies.leakCanary
+
+    implementation appDependencies.googlePlayServices
+
+    testImplementation testDependencies.coroutinesTest
+    testImplementation testDependencies.kotest
+    testImplementation testDependencies.mockk
+    androidTestImplementation testDependencies.mockkAndroid
+    testImplementation testDependencies.striktCore
+    testImplementation testDependencies.striktMockk
+    androidTestImplementation testDependencies.striktCore
+}

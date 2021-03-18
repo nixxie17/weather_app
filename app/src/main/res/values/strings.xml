@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">WeatherApp</string>
+    <string name="enter_city_name">Enter city name</string>
+    <string name="show_weather">Forecast</string>
+
+    <string name="temperature">Temperature:</string>
+    <string name="humidity">Humidity : </string>
+    <string name="pressure">Pressure : </string>
+    <string name="max_temp">Max temp :</string>
+    <string name="min_temp">Min temp : </string>
+
+    <string name="device_location_error">Unable to get device\'s location data</string>
+    <string name="no_city_name">Please insert valid city name</string>
+    <string name="unknown_error">Unknown error</string>
+    <string name="no_data_for_city">Wrong city name or no data is available for this city</string>
+
+    <string name="symbol_degrees">°</string>
+    <string name="symbol_humidity">gm/ml</string>
+    <string name="symbol_pressure">mb </string>
+</resources>

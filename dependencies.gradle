@@ -1,0 +1,69 @@
+ext {
+
+    // Kotlin
+    kotlinVersion = '1.4.31'
+
+    // Dependencies Version - Presentation
+    appcompatVersion = '1.2.0'
+    androidxCoreKtxVersion = '1.3.2'
+    constraintLayoutVersion = '1.1.3'
+    materialVersion = '1.2.1'
+    viewModelVersion = '2.2.0'
+    leakCanaryVersion = '2.0'
+    koinVersion = '2.1.5'
+    lifecycleExtensionsVersion = '2.1.0'
+    picassoVersion = '2.71828'
+    googlePlayServicesVersion = '18.0.0'
+
+    // Data
+    retrofitVersion = '2.7.0'
+    moshiConverterVersion = '2.7.0'
+    loggingInterceptorVersion = '4.2.1'
+
+    // Domain
+    coroutinesCoreVersion = '1.3.9'
+
+    // Testing
+    junitVersion = '4.12'
+    kotestVersion = '4.2.5'
+    mockkVersion = '1.10.2'
+    striktVersion = '0.27.0'
+
+
+    // App/Presentation Layer
+    appDependencies = [
+            appCompat             : "androidx.appcompat:appcompat:$appcompatVersion",
+            androidxKtx           : "androidx.core:core-ktx:$androidxCoreKtxVersion",
+            constraintLayout      : "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
+            viewModel             : "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewModelVersion",
+            leakCanary            : "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion",
+            material              : "com.google.android.material:material:$materialVersion",
+            lifecycleExtensions   : "androidx.lifecycle:lifecycle-extensions:$lifecycleExtensionsVersion",
+            picasso               : "com.squareup.picasso:picasso:$picassoVersion",
+            koinAndroid           : "org.koin:koin-android:$koinVersion",
+            koinLifeCycleScope    : "org.koin:koin-android-scope:$koinVersion",
+            koinAndroidViewModel  : "org.koin:koin-androidx-viewmodel:$koinVersion",
+            googlePlayServices    : "com.google.android.gms:play-services-location:$googlePlayServicesVersion"
+    ]
+
+    dataDependencies = [
+            retrofit          : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            moshiConverter    : "com.squareup.retrofit2:converter-moshi:$moshiConverterVersion",
+            loggingInterceptor: "com.squareup.okhttp3:logging-interceptor:$loggingInterceptorVersion",
+    ]
+
+    domainDependencies = [
+            kotlin        : "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
+            coroutinesCore: "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesCoreVersion"
+    ]
+
+    testDependencies = [
+            junit                 : "junit:junit:$junitVersion",
+            coroutinesTest        : "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesCoreVersion",
+            kotest                : "io.kotest:kotest-runner-junit5-jvm:$kotestVersion",
+            mockk                 : "io.mockk:mockk:$mockkVersion",
+            mockkAndroid          : "io.mockk:mockk-android:$mockkVersion",
+            striktCore            : "io.strikt:strikt-core:$striktVersion",
+            striktMockk           : "io.strikt:strikt-mockk:$striktVersion"
+    ]
+}

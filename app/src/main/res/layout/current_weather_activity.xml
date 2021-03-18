@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBackgroundPrimary">
+
+            <EditText
+                android:id="@+id/search_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/search_bar_side_margin"
+                android:layout_marginTop="@dimen/widget_top_margin"
+                android:layout_marginEnd="@dimen/search_bar_side_margin"
+                android:autofillHints="@string/enter_city_name"
+                android:background="@drawable/bg_search_edit_text"
+                android:clickable="true"
+                android:drawableStart="@drawable/ic_search_24dp"
+                android:drawablePadding="@dimen/drawable_padding"
+                android:focusable="true"
+                android:fontFamily="@font/acme"
+                android:hint="@string/enter_city_name"
+                android:inputType="text"
+                android:padding="@dimen/padding_default"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/search_results_progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn_forecast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/widget_top_margin"
+                android:fontFamily="@font/aclonica"
+                android:text="@string/show_weather"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search_edit_text" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/results_holder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_forecast"
+                android:layout_marginTop="@dimen/widget_top_margin"
+                >
+
+                <ImageView
+                    android:id="@+id/forecast_icon"
+                    android:layout_width="@dimen/weather_image_width"
+                    android:layout_height="@dimen/weather_image_width"
+                    android:layout_marginTop="@dimen/widget_top_margin"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_launcher_background"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_city_name" />
+
+                <TextView
+                    android:id="@+id/tv_main"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/widget_top_margin_small"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/aclonica"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="@dimen/subtitle_text_size"
+                    android:textStyle="italic|bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/forecast_icon" />
+
+                <TextView
+                    android:id="@+id/tv_city_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/widget_top_margin"
+                    android:fontFamily="@font/aclonica"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/title_text_size"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/forecast_icon"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_description"
+                    android:layout_width="@dimen/description_width"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/widget_top_margin_small"
+                    android:fontFamily="@font/aguafina_script"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/description_text_size"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_main" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/search_bar_side_margin"
+                    android:layout_marginTop="48dp"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_description">
+
+                    <TextView
+                        android:id="@+id/tv_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/widget_top_margin_small"
+                        android:textSize="@dimen/details_text_size"
+                        android:fontFamily="@font/aclonica"/>
+
+                    <TextView
+                        android:id="@+id/tv_humidity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/widget_top_margin_small"
+                        android:textSize="@dimen/details_text_size"
+                        android:fontFamily="@font/aclonica"/>
+
+                    <TextView
+                        android:id="@+id/tv_pressure"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/widget_top_margin_small"
+                        android:textSize="@dimen/details_text_size"
+                        android:fontFamily="@font/aclonica"/>
+
+                    <TextView
+                        android:id="@+id/tv_max_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/widget_top_margin_small"
+                        android:textSize="@dimen/details_text_size"
+                        android:fontFamily="@font/aclonica"/>
+
+                    <TextView
+                        android:id="@+id/tv_min_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/widget_top_margin_small"
+                        android:layout_marginBottom="@dimen/widget_margin_bottom"
+                        android:textSize="@dimen/details_text_size"
+                        android:fontFamily="@font/aclonica"/>
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
